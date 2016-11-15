@@ -17,10 +17,6 @@ import environ
 ROOT_DIR = environ.Path(__file__) - 3  # (project_name/config/settings/common.py - 3 = project_name/)
 APPS_DIR = ROOT_DIR.path('superlists')
 
-env = environ.Env()
-env.read_env()
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -36,12 +32,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'superlists.lists',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_ROOT = str(ROOT_DIR('staticfiles'))
+# STATIC_ROOT = str(ROOT_DIR('staticfiles'))
+STATIC_ROOT = str(ROOT_DIR('static'))
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
